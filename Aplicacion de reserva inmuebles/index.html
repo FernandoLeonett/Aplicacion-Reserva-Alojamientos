@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="./assets/js/clases.js" defer></script>
+    <script src="./assets/js/AyudaYValidaciones.js" defer></script>
+
+    <script src="./assets/js/datos.js" defer></script>
+    <script src="./assets/js/codigo.js" defer></script>
+
+
+    <title>App Reserva Alojamientos</title>
+</head>
+
+<body>
+
+    <div id="contenedor">
+        <div id="cabezal" class="clearfix">
+            <img id="logo" src="./assets/img/logo.png" alt="logo">
+            <ul id="navPrincipal">
+                <li id="itemHome" class="menu " style="">
+                    <a>Home</a>
+                </li>
+
+                <li class="menu Anfitrion" id="itemAgregarInmueble">
+                    <a>Agregar inmueble</a>
+                </li>
+                <li class="menu Administrador" id="itemRegistro">
+                    <a>Agregar Anfitrion</a>
+                </li>
+                <li class="menu Visitante " id="itemRegistro">
+                    <a>Registrarse</a>
+                </li>
+
+                <li class="menu Huesped" id="itemReserva">
+                    <a>Ver Reservas</a>
+                </li>
+            </ul>
+            <div id="aux">
+                <a><label id="msgBienvenida"></label>
+                </a>
+                <a class="menu Visitante" id="itemLogin">Login</a>
+
+                <a class="menu Anfitrion Huesped Administrador" id="exitHome">Cerrar Sesión</a>
+            </div><!-- FIN AUX -->
+        </div><!-- FIN CABEZAL -->
+
+        <div id="contenido">
+            <div id="divLogin" class="pantalla">
+                <h3>Iniciar Sesion</h3>
+
+
+                <label for="txtLoginCorreo">Correo</label><input type="text" id="txtLoginCorreo">
+                <br>
+                <label for="txtLoginClave">Contraseña</label><input type="password" id="txtLoginClave">
+                <br>
+                <input type="button" value="Iniciar Sesion" id="btnLogin">
+
+                <p id="msgLogin"></p>
+
+            </div>
+            <div id="divRegistro" class="pantalla">
+                <h3>Formulario de Registro</h3>
+
+                <label for="txtRegistroNombre">Nombre</label>
+                <input type="text" id="txtRegistroNombre"><br><br>
+
+
+                <label for="txtRegistroApellido">Apellido</label>
+                <input type="text" id="txtRegistroApellido"><br><br>
+
+
+                <label for="txtRegistroCorreo">Correo</label>
+                <input type="text" id="txtRegistroCorreo"><br><br>
+
+
+                <label for="txtRegistroTelefono">Telefono</label>
+                <input type="text" id="txtRegistroTelefono"><br><br>
+
+
+                <label for="txtRegistroClave1">Contraseña</label>
+                <input type="password" id="txtRegistroClave1"><br><br>
+
+
+                <label for="txtRegistroClave2">Repita Contraseña</label>
+                <input type="password" id="txtRegistroClave2"><br><br>
+
+
+                <input type="button" value="Registrar Datos" id="btnRegistrar">
+
+                <p id="msgRegistro"></p>
+
+            </div>
+
+            <div id="divAgregarInmueble" class="pantalla">
+                <h3>Agegar Inmueble</h3>
+
+
+
+                <table>
+                    <tr>
+                        <td>
+                            <label for="txtTitulo">Titulo</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtTitulo">
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <label for="txtCiudad">Ciudad</label>
+                        </td>
+
+                        <td>
+
+                            <input type="text" id="txtCiudad">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="txtPrecioXNoche">Precio por Noche</label>
+                        </td>
+
+
+                        <td>
+                            <input type="text" id="txtPrecioXNoche">
+                        </td>
+
+                    </tr>
+                </table>
+                <br>
+
+                <label for="txtDescripcion">Descripcion</label>
+                <textarea id="txtDescripcion" cols="30" rows="10"></textarea><br><br>
+
+                <label for="slcAltaImagenes">Elija Imagen</label>
+                <select id="slcAltaImagenes"></select>
+
+                <p id="msgAltaImagenes"></p> <br><br>
+                <p id="msgPantallaAgregarInmueble"></p>
+                <input type="button" id="btnAltaImagen" value="Agregar Imagen">
+                <br>
+                <input type="button" id="btnAltaInmueble" value="Crear Inmueble">
+            </div>
+
+            <div id="divHome" class=" pantalla">
+
+                <div class=" Huesped Visitante">
+
+
+                    <p id="msgBusquedaUsuario"></p>
+                    <label for="txtHomeFiltro"> Buscar Inmuebles: </label><input type="text" id="txtHomeFiltro"
+                        placeholder="ingrese datos para su busqueda"></input><br>
+                    <input id="btnHomeFiltroHandler" type="button" value="Buscar..."><br>
+                    <input type="button" id="btnHandlerOrdenarMuro" value="Actualizar Lista de Inmuebles Por Precio">
+                    <label class="label-moneda">Cambiar Moneda a USD</label>
+                </div>
+
+
+                <div id="divMuro" class=" Visitante Huesped Anfitrion">
+
+                </div>
+                <div class="Administrador" id="divAdministrador">
+
+                    <label for="txtDesdePrecio">Desde:</label><input type="text" id="txtDesdePrecio">
+                    <br>
+                    <label for="txtDesdePrecio">Hasta:</label><input type="text" id="txtHastaPrecio">
+                    <input type="button" value="Buscar Inmuebles" id="btnBuscarAdmin">
+                    <br>
+                    <label for="txtCargarCotizacion">Cotizacion: </label><input type="text" id="txtCargarCotizacion">
+                    <input type="button" id="btnCargarDolar" value="Cargar Cotizacion Dolar">
+                    <p id="msgAdministrador"></p>
+                    <p id="msgCotizacion"></p>
+
+                    <table border="1" id="tblReporte">
+                        <thead>
+                            <tr>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+            <div id="divDetalle" class="pantalla">
+                <h3>Detalle</h3>
+                <br><br>
+                <p id="msgDetalleTitulo"></p>
+
+
+                <div class="galeria">
+
+                    <div class="img-container">
+                        <img src="">
+                    </div>
+
+                    <div class="btn-container">
+
+                        <input type="button" value="<<" id="btnGaleriaAnterior"><input class="btn-siguiente"
+                            type="button" id="btnGaleriaSiguiente" value=">>"><br>
+                    </div>
+                </div>
+
+                <p id="msgDetalleCiudad"></p>
+                <p id="msgDetalleDescripcion"></p>
+                <p id="msgDetallePrecio"></p>
+
+                <label for="txtCantNoches">Cantidad de noches</label>
+                <input type="text" id="txtCantNoches">
+                <br>
+                <input type="button" value="Reservar" id="btnReservarHandler">
+
+                <p id="msgDetalleReserva"></p>
+                <input id="btnConfirmarReservaHandler" type="button" value="Confirmar Reserva" style="display: none;">
+
+            </div>
+
+            <div id="divReserva" class="pantalla">
+                <p id="msgCalReserva"></p>
+
+                <table border="1" id="tblReservas">
+
+                </table>
+
+            </div>
+
+
+        </div>
+        <div id="pie">
+            <a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector created by freepik -
+                www.freepik.com</a>
+        </div><!-- FIN PIE -->
+
+    </div>
+</body>
+
+</html>
